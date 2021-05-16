@@ -25,7 +25,13 @@ function setup(){
   }
 
   umbrella = new Umbrella(200,350)
-  if(frameCount % 20 == 0){
+  
+}
+
+function draw(){
+    background(0,0,0); 
+    Engine.update(engine);
+    if(frameCount % 20 == 0){
      thunder = createSprite(Math.round(random(200,400)),Math.round(random(30,50)),20,200)
      rand = Math.round(random(1,4))
      switch(rand){
@@ -38,14 +44,9 @@ function setup(){
         case 4 : thunder.addImage(thunder4);
         break 
      }
-     thunder.scale = 0.5;
+     thunder.scale = 0.05;
      thunder.lifetime = 5;
    }
-}
-
-function draw(){
-    background(0,0,0); 
-    Engine.update(engine)
     
     for(var i=0; i<maxDrops; i++){
         drops[i].display();
